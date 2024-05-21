@@ -1,0 +1,9 @@
+cloud-init/ubuntu.yml
+
+hosts.ini
+
+roles/**/*
+
+!roles/.gitkeep
+
+**/volumes

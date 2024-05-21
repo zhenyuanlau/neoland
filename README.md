@@ -1,21 +1,26 @@
 # AI Infra
 
-## Ansible
+A basic IaC implementation for macOS designed to run AI-native applications, which requires Homebrew and Python 3.10.x.
 
-###  Ad-Hoc
+The system utilizes Multipass to manage virtual machines (VMs) and employs Ansible to install Dify and Xinference.
 
-Syntax: `ansible <pattern> -m <module_name> -a <arguments>`.
+## Setup
 
 ```shell
-ansible all -m ping
+git clone https://github.com/zhenyuanlau/ainfra.git
 
-ansible all -a "/bin/echo hello"
+cd ainfra
+
+# Run locally using Multipass, or modify the hosts.ini file to update your host entries.
+make inventory
+
+make
 ```
 
-### Playbook
+## Play
 
 ```shell
-ansible-playbook -i production site.yml --tags ftp
+make dify.open
 
-ansible-galaxy init nodejs
+make xinference.open
 ```

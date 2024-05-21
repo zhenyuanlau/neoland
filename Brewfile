@@ -1,3 +1,1 @@
 brew "pipx"
-
-cask "orbstack"

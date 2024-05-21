@@ -1,0 +1,11 @@
+---
+- name: Play for Xinference
+  hosts: localhost
+  tasks:
+    - name: Tear down Dify
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/dify
+        state: absent
+    - name: Create and start Dify
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/dify
