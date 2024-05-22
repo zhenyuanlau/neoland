@@ -1,0 +1,7 @@
+= Dify
+
+image::open-dify.png[]
+
+== Dify with Ollama
+
+image::dify-ollama.png[]

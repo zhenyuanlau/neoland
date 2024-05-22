@@ -1,6 +1,10 @@
 = Index
 :!toc:
 
+== Infras
+
+image::neoland-on-orbstack.png[]
+
 == Makefile
 
 [cols="1,1"]
@@ -8,8 +12,7 @@
 |Command | Help
 
 |make
-|make land
-
+|Install brew bundle and python deps
 
 |make redis
 |Recreate redis docker 

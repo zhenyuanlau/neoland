@@ -1,0 +1,23 @@
+= Xinference
+
+== Docs
+
+link:https://inference.readthedocs.io/en/latest/[Xinference Docs]
+
+== Usage
+
+=== Start
+
+[source,shell]
+
+XINFERENCE_MODEL_SRC=modelscope xinference-local --host 0.0.0.0 --port 9997
+
+image::xinference-launch-model.png[]
+
+=== Models
+
+[source,shell]
+------
+xinference launch --model-name bge-reranker-v2-m3 --model-type rerank
+------
+

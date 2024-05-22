@@ -1,0 +1,13 @@
+= Ollama
+
+== LLM
+
+[source,shell]
+
+ollama run command-r:35b
+
+== Embedding models
+
+[source,shell]
+
+ollama pull mxbai-embed-large

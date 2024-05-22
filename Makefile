@@ -46,7 +46,7 @@ ollama.command-r:
 	@ollama run command-r:35b
 
 xinf.start:
-	XINFERENCE_MODEL_SRC=modelscope; $(XINF_LOCAL) --host 0.0.0.0 --port 9997
+	XINFERENCE_MODEL_SRC=modelscope $(XINF_LOCAL) --host 0.0.0.0 --port 9997
 
 xinf.rerank:
 	@$(XINF) launch --model-name bge-reranker-v2-m3 --model-type rerank
