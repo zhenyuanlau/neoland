@@ -1,0 +1,4 @@
+* AI
+** xref:dify.adoc[Dify]
+** xref:ollama.adoc[Ollama]
+** xref:xinference.adoc[Xinference]

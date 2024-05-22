@@ -50,3 +50,10 @@ xinf.start:
 
 xinf.rerank:
 	@$(XINF) launch --model-name bge-reranker-v2-m3 --model-type rerank
+
+antora.generate:
+	@rm -fr build/site
+	@npx antora local-antora-playbook.yml
+
+antora.preview: antora.generate
+	@npx http-server build/site -c-1

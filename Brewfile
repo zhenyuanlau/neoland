@@ -1,3 +1,4 @@
+brew "node"
 brew "kcat"
 
 cask "orbstack"

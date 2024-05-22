@@ -9,3 +9,7 @@ roles/**/*
 **/volumes
 
 .venv
+
+build
+
+.DS_Store

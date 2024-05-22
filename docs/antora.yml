@@ -1,0 +1,16 @@
+name: neoland
+title: Neoland
+version: "0.0.1"
+display_version: "0.0.1"
+asciidoc:
+  attributes:
+    table-caption: Data Set
+    hide-uri-scheme: ""
+    page-level: Advanced
+    page-category: Statistics; Cloud Infrastructure
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/web/nav.adoc
+  - modules/dt/nav.adoc
+  - modules/ai/nav.adoc
+  - modules/iac/nav.adoc

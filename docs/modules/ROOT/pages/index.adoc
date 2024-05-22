@@ -1,0 +1,23 @@
+= Index
+:!toc:
+
+== Makefile
+
+[cols="1,1"]
+|===
+|Command | Help
+
+|make
+|make land
+
+
+|make redis
+|Recreate redis docker 
+
+|make dify
+|Recreate Dify
+
+|make xinf.start
+|Start Xinference localy on port 9997
+
+|===

@@ -1,0 +1,53 @@
+= Neoland 
+:toc: right
+
+A new homeland for developing AI-native applications.
+
+== Stack
+
+* Homebrew
+** Cask
+*** Orbstack
+*** Ollama
+** Brew
+*** kcat
+* Orbstack
+*** Dify
+*** Kafka
+*** RabbitMQ
+*** Redis
+*** PostgreSQL
+*** Clickhouse
+* Python 3.10.X
+** Ansible
+** Xinference
+
+== Docs
+
+```shell
+make antora.preview
+```
+
+== Quick
+
+=== Setup
+
+[source, shell]
+------
+
+git clone https://github.com/zhenyuanlau/neoland.git
+
+cd neoland
+
+make
+------
+
+=== Play
+
+[source, shell]
+------
+
+make ollama.command-r
+
+make dify.open
+------
