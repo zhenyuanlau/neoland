@@ -1,11 +1,96 @@
 ---
-- name: Play for Xinference
+- name: IaC for Orbstack
   hosts: localhost
+  gather_facts: false
   tasks:
+    - name: Tear down all
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/{{ item }}
+        state: absent
+      with_items:
+        - dify
+        - redis
+        - postgres
+        - rabbitmq
+        - kafka
+        - clickhouse
+      tags:
+        - land
+    - name: Create and start all
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/{{ item }}
+      with_items:
+        - dify
+        - redis
+        - postgres
+        - rabbitmq
+        - kafka
+        - clickhouse
+      tags:
+        - land
     - name: Tear down Dify
       community.docker.docker_compose_v2:
         project_src: ../dockers/dify
         state: absent
+      tags:
+        - dify
     - name: Create and start Dify
       community.docker.docker_compose_v2:
         project_src: ../dockers/dify
+      tags:
+        - dify
+    - name: Tear down Kafka
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/kafka
+        state: absent
+      tags:
+        - kafka
+    - name: Create and start Kafka
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/kafka
+      tags:
+        - kafka
+    - name: Tear down RabbitMQ
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/rabbitmq
+        state: absent
+      tags:
+        - rabbitmq
+    - name: Create and start RabbitMQ
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/rabbitmq
+      tags:
+        - rabbitmq
+    - name: Tear down Redis
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/redis
+        state: absent
+      tags:
+        - redis
+    - name: Create and start Redis
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/redis
+      tags:
+        - redis
+    - name: Tear down PostgreSQL
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/postgres
+        state: absent
+      tags:
+        - postgres
+    - name: Create and start PostgreSQL
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/postgres
+      tags:
+        - postgres
+    - name: Tear down ClickHouse
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/clickhouse
+        state: absent
+      tags:
+        - clickhouse
+    - name: Create and start ClickHouse
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/clickhouse
+      tags:
+        - clickhouse

@@ -1,18 +1,32 @@
-# AI Infra
+# Neoland 
 
-A basic IaC implementation for macOS designed to run AI-native applications, which requires Homebrew and Python 3.10.x.
+A new homeland for developing AI-native applications.
 
-The system utilizes Multipass to manage virtual machines (VMs) and employs Ansible to install Dify and Xinference.
+## Stack
+
+- Homebrew
+    - Cask
+        - Orbstack
+        - Ollama
+    - Brew
+        - kcat
+- Orbstack
+    - Dify
+    - Kafka
+    - RabbitMQ
+    - Redis
+    - PostgreSQL
+    - Clickhouse
+- Python 3.10.X
+    - Ansible
+    - Xinference
 
 ## Setup
 
 ```shell
-git clone https://github.com/zhenyuanlau/ainfra.git
+git clone https://github.com/zhenyuanlau/neoland.git
 
-cd ainfra
-
-# Run locally using Multipass, or modify the hosts.ini file to update your host entries.
-make inventory
+cd neoland
 
 make
 ```
@@ -20,7 +34,11 @@ make
 ## Play
 
 ```shell
-make dify.open
+make ollama.command-r
 
-make xinference.open
+make dify.open
 ```
+
+### Dify
+
+Ollama URL: `http://host.docker.internal:11434`.

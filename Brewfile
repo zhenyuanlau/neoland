@@ -1,1 +1,4 @@
-brew "pipx"
+brew "kcat"
+
+cask "orbstack"
+cask "ollama"

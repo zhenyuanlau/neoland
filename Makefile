@@ -1,38 +1,52 @@
-VMS := h1 h2 h3
-POETRY_CMD := $(shell command -v poetry 2> /dev/null)
+PY := python3.10
+VENV_PATH := .venv
+BIN_PATH := $(VENV_PATH)/bin
 
-.PHONY: setup deps.get pipx.install ansible.galaxy cloud.init vms $(VMS) inventory
+PIP := $(BIN_PATH)/pip
+ANSIBLE := $(BIN_PATH)/ansible
+PLAY := $(BIN_PATH)/ansible-playbook
+GALAXY := $(BIN_PATH)/ansible-galaxy
 
-default: deps.get vms inventory ai.infra
+XINF := $(BIN_PATH)/xinference
+XINF_LOCAL := $(BIN_PATH)/xinference-local
 
-deps.get: brew.bundle pipx.install ansible.galaxy
+COMPONENTS := postgres redis kafka rabbitmq clickhouse
 
-vms: cloud.init multipass.vms
+.PHONY: default setup land
+
+default: setup land
+
+setup: venv pip.install ansible.galaxy brew.bundle
+
+venv:
+	$(PY) -m venv $(VENV_PATH)
+
+pip.freeze:
+	$(PIP) freeze > requirements.txt
+
+pip.install:
+	$(PIP) install --upgrade -r requirements.txt
+
+ansible.galaxy:
+	@$(GALAXY) collection install community.docker --force
 
 brew.bundle:
 	@brew bundle
 
-pipx.install:
-ifndef POETRY_CMD
-	@pipx install poetry
-endif
-	@poetry install --no-root
+land:
+	@$(PLAY) playbooks/site.yml -t land
 
-ansible.galaxy:
-	@poetry run ansible-galaxy collection install community.docker --force
+$(COMPONENTS):
+	@$(PLAY) playbooks/site.yml -t $@
 
-cloud.init:
-	@poetry run ansible localhost -m template -a "src=cloud-init/ubuntu.yml.j2 dest=cloud-init/ubuntu.yml" -e "ssh_pub_key={{ lookup('file', '~/.ssh/id_rsa.pub')}}"
+dify.open:
+	@open https://nginx.dify.orb.local
 
-# multipass.vms: $(VMS)
-orb.vms: $(VMS)
+ollama.command-r:
+	@ollama run command-r:35b
 
-$(VMS):
-	# -multipass launch docker -n $@ -c 2 -m 4G -d 40G --cloud-init cloud-init/ubuntu.yml
-	-orb create ubuntu $@ -c cloud-init/ubuntu.yml
+xinf.start:
+	XINFERENCE_MODEL_SRC=modelscope; $(XINF_LOCAL) --host 0.0.0.0 --port 9997
 
-inventory:
-	@multipass ls | awk 'NR>1 || /h[0-9]+/ {print $$1 " ansible_user=ai ansible_ssh_host=" $$3}' > inventories/hosts.ini
-
-ai.infra:
-	@poetry run ansible-playbook playbooks/site.yml
+xinf.rerank:
+	@$(XINF) launch --model-name bge-reranker-v2-m3 --model-type rerank

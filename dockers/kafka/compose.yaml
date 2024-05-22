@@ -1,0 +1,63 @@
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:${CONFLUENT_PLATFORM_VERSION:-latest}
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - ./volumes/zk:/var/lib/zookeeper/data
+
+  broker1:
+    image: confluentinc/cp-kafka:${CONFLUENT_PLATFORM_VERSION:-latest}
+    container_name: broker1
+    ports:
+      - "9091:9091"
+    healthcheck:
+      test: ps augwwx | egrep [S]upportedKafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9091,PLAINTEXT_INTERNAL://broker1:29091
+      BOOTSTRAP_SERVERS: broker1:9091,broker2:9092,broker3:9093
+    volumes:
+      - ./volumes/kafka1:/var/lib/kafka/data
+
+  broker2:
+    image: confluentinc/cp-kafka:${CONFLUENT_PLATFORM_VERSION:-latest}
+    container_name: broker2
+    ports:
+      - "9092:9092"
+    healthcheck:
+      test: ps augwwx | egrep [S]upportedKafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker2:29092
+      BOOTSTRAP_SERVERS: broker1:9091,broker2:9092,broker3:9093
+    volumes:
+      - ./volumes/kafka2:/var/lib/kafka/data
+
+  broker3:
+    image: confluentinc/cp-kafka:${CONFLUENT_PLATFORM_VERSION:-latest}
+    container_name: broker3
+    ports:
+      - "9093:9093"
+    healthcheck:
+      test: ps augwwx | egrep [S]upportedKafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9093,PLAINTEXT_INTERNAL://broker3:29093
+      BOOTSTRAP_SERVERS: broker1:9091,broker2:9092,broker3:9093
+    volumes:
+      - ./volumes/kafka3:/var/lib/kafka/data
