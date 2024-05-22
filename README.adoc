@@ -1,5 +1,4 @@
 = Neoland 
-:toc: right
 
 A new homeland for developing AI-native applications.
 
@@ -22,25 +21,28 @@ A new homeland for developing AI-native applications.
 ** Ansible
 ** Xinference
 
-== Docs
-
-```shell
-make antora.preview
-```
 
 == Quick
+
+[source, shell]
+
+------
+git clone https://github.com/zhenyuanlau/neoland.git
+
+cd neoland
+------
+
+=== Docs
+
+[source, shell]
+
+make antora.preview
 
 === Setup
 
 [source, shell]
-------
-
-git clone https://github.com/zhenyuanlau/neoland.git
-
-cd neoland
 
 make
-------
 
 === Play
 
