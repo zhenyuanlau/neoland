@@ -54,6 +54,9 @@ xinf.rerank:
 xinf.qwen:
 	@$(XINF) launch --model-name qwen1.5-chat --size-in-billions 32 --model-format pytorch --quantization 8-bit --model-engine transformers
 
+xinf.chatglm3:
+	@$(XINF) launch --model-name chatglm3 --size-in-billions 6 --model-format pytorch --quantization 8-bit --model-engine transformers
+
 antora.generate:
 	@rm -fr build/site
 	@npx antora local-antora-playbook.yml
