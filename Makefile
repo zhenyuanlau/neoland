@@ -51,6 +51,9 @@ xinf.start:
 xinf.rerank:
 	@$(XINF) launch --model-name bge-reranker-v2-m3 --model-type rerank
 
+xinf.qwen:
+	@$(XINF) launch --model-name qwen1.5-chat --size-in-billions 32 --model-format pytorch --quantization 8-bit --model-engine transformers
+
 antora.generate:
 	@rm -fr build/site
 	@npx antora local-antora-playbook.yml
