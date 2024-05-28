@@ -10,16 +10,15 @@ A new homeland for developing AI-native applications.
 *** link:https://ollama.ai/[Ollama]
 ** Brew
 *** link:https://docs.confluent.io/platform/current/tools/kafkacat-usage.html[kcat]
-* Orbstack
-*** link:https://dify.ai/[Dify]
+* link:https://orbstack.dev/[Orbstack]
 *** link:https://kafka.apache.org/documentation/#quickstart[Kafka]
 *** link:https://www.rabbitmq.com/tutorials/tutorial-one-elixir[RabbitMQ]
 *** Redis
 *** link:https://www.postgresql.org/docs/current/index.html[PostgreSQL]
 *** link:https://clickhouse.com/docs/en/getting-started/quick-start[Clickhouse]
+*** link:https://docs.litellm.ai/docs/[LiteLLM]
 * link:https://www.python.org/downloads/[Python 3.10.X]
 ** link:https://docs.ansible.com/ansible-core/devel/getting_started/index.html[Ansible]
-** link:https://inference.readthedocs.io/en/latest/getting_started/using_xinference.html[Xinference]
 
 
 == Quick
@@ -36,20 +35,23 @@ cd neoland
 
 [source, shell]
 
-make antora.preview
+make guide
 
 === Setup
 
 [source, shell]
 
+----
 make
+
+make ollama.llama3
+
+make ollama.dolphincoder
+----
 
 === Play
 
 [source, shell]
 ------
-
-make ollama.command-r
-
-make dify.open
+make litellm.open
 ------

@@ -1,15 +1,11 @@
-cloud-init/ubuntu.yml
-
-hosts.ini
+.venv
 
 roles/**/*
 
 !roles/.gitkeep
 
-**/volumes
-
-.venv
-
 build
 
 .DS_Store
+
+node_modules/

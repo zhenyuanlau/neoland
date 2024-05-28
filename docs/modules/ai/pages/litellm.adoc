@@ -1,0 +1,14 @@
+= LiteLLM
+
+link:https://www.litellm.ai/[LiteLLM] handles loadbalancing, fallbacks and spend tracking across 100+ LLMs. All in the OpenAI format.
+
+== OpenAI Proxy
+
+[source, shell]
+
+----
+pip install 'litellm[proxy]'
+
+litellm --model ollama_chat/llama3
+----
+

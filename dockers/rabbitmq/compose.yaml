@@ -1,3 +1,4 @@
+---
 services:
   rabbitmq:
     container_name: rabbitmq
@@ -10,8 +11,11 @@ services:
     volumes:
       - ./rabbitmq_enabled_plugins:/etc/rabbitmq/enabled_plugins
       - ./management_agent.disable_metrics_collector.conf:/etc/rabbitmq/conf.d/management_agent.disable_metrics_collector.conf
-      - ./volumes/rabbitmq:/var/lib/rabbitmq/mnesia
+      - rabbitmq-data:/var/lib/rabbitmq/mnesia
     ports:
       - 5672:5672
       - 15672:15672
       - 15692:15692
+
+volumes:
+  rabbitmq-data:

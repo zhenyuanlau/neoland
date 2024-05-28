@@ -1,4 +1,3 @@
-* AI
-** xref:dify.adoc[Dify]
+* xref:index.adoc[AI]
+** xref:litellm.adoc[LiteLLM]
 ** xref:ollama.adoc[Ollama]
-** xref:xinference.adoc[Xinference]

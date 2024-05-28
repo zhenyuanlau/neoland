@@ -1,0 +1,14 @@
+---
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    ports:
+      - "4000:4000"
+    environment:
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY}
+      UI_USERNAME: ${UI_USERNAME}
+      UI_PASSWORD: ${UI_PASSWORD} 
+      DATABASE_URL: ${DATABASE_URL}
+    volumes:
+      - ./config.yml:/app/config.yml
+    command: [ "--config", "/app/config.yml", "--port", "4000", "--num_workers", "8" ]

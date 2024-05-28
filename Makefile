@@ -7,16 +7,13 @@ ANSIBLE := $(BIN_PATH)/ansible
 PLAY := $(BIN_PATH)/ansible-playbook
 GALAXY := $(BIN_PATH)/ansible-galaxy
 
-XINF := $(BIN_PATH)/xinference
-XINF_LOCAL := $(BIN_PATH)/xinference-local
+COMPONENTS := postgres redis kafka rabbitmq clickhouse litellm
 
-COMPONENTS := postgres redis kafka rabbitmq clickhouse
-
-.PHONY: default setup land
+.PHONY: default setup land clean
 
 default: setup land
 
-setup: venv pip.install ansible.galaxy brew.bundle
+setup: venv pip.install ansible.galaxy brew.bundle npm.install
 
 venv:
 	$(PY) -m venv $(VENV_PATH)
@@ -26,6 +23,9 @@ pip.freeze:
 
 pip.install:
 	$(PIP) install --upgrade -r requirements.txt
+
+npm.install:
+	@npm install
 
 ansible.galaxy:
 	@$(GALAXY) collection install community.docker --force
@@ -39,27 +39,20 @@ land:
 $(COMPONENTS):
 	@$(PLAY) playbooks/site.yml -t $@
 
-dify.open:
-	@open https://nginx.dify.orb.local
+ollama.llama3:
+	-ollama run llama3
 
-ollama.command-r:
-	@ollama run command-r:35b
+ollama.dolphincoder:
+	-ollama run dolphincoder
 
-xinf.start:
-	XINFERENCE_MODEL_SRC=modelscope $(XINF_LOCAL) --host 0.0.0.0 --port 9997
-
-xinf.rerank:
-	@$(XINF) launch --model-name bge-reranker-v2-m3 --model-type rerank
-
-xinf.qwen:
-	@$(XINF) launch --model-name qwen1.5-chat --size-in-billions 32 --model-format pytorch --quantization 8-bit --model-engine transformers
-
-xinf.chatglm3:
-	@$(XINF) launch --model-name chatglm3 --size-in-billions 6 --model-format pytorch --quantization 8-bit --model-engine transformers
-
-antora.generate:
-	@rm -fr build/site
+antora: clean
 	@npx antora local-antora-playbook.yml
 
-antora.preview: antora.generate
+guide: antora
 	@npx http-server build/site -c-1
+
+open:
+	@open http://127.0.0.1:4000
+
+clean:
+	@rm -fr build/site

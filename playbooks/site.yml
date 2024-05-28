@@ -8,37 +8,26 @@
         project_src: ../dockers/{{ item }}
         state: absent
       with_items:
-        - dify
         - redis
         - postgres
         - rabbitmq
         - kafka
         - clickhouse
+        - litellm
       tags:
         - land
     - name: Create and start all
       community.docker.docker_compose_v2:
         project_src: ../dockers/{{ item }}
       with_items:
-        - dify
         - redis
         - postgres
         - rabbitmq
         - kafka
         - clickhouse
+        - litellm
       tags:
         - land
-    - name: Tear down Dify
-      community.docker.docker_compose_v2:
-        project_src: ../dockers/dify
-        state: absent
-      tags:
-        - dify
-    - name: Create and start Dify
-      community.docker.docker_compose_v2:
-        project_src: ../dockers/dify
-      tags:
-        - dify
     - name: Tear down Kafka
       community.docker.docker_compose_v2:
         project_src: ../dockers/kafka
@@ -94,3 +83,14 @@
         project_src: ../dockers/clickhouse
       tags:
         - clickhouse
+    - name: Tear down LiteLLM
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/litellm
+        state: absent
+      tags:
+        - litellm
+    - name: Create and start LiteLLM
+      community.docker.docker_compose_v2:
+        project_src: ../dockers/litellm
+      tags:
+        - litellm

@@ -1,9 +1,9 @@
-= Index
+= Home
 :!toc:
 
 == Infras
 
-image::neoland-on-orbstack.png[]
+image::land-on-orbstack.png[]
 
 == Makefile
 
@@ -12,15 +12,12 @@ image::neoland-on-orbstack.png[]
 |Command | Help
 
 |make
-|Install brew bundle and python deps
+|Setup neoland on Orbstack
 
-|make redis
-|Recreate redis docker 
+|make guide
+|Antora generate and open docs
 
-|make dify
-|Recreate Dify
-
-|make xinf.start
-|Start Xinference localy on port 9997
+|make open
+|Open LiteLLM page
 
 |===

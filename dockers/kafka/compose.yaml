@@ -1,3 +1,4 @@
+---
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:${CONFLUENT_PLATFORM_VERSION:-latest}
@@ -6,7 +7,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     volumes:
-      - ./volumes/zk:/var/lib/zookeeper/data
+      - zk-data:/var/lib/zookeeper/data
 
   broker1:
     image: confluentinc/cp-kafka:${CONFLUENT_PLATFORM_VERSION:-latest}
@@ -24,7 +25,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9091,PLAINTEXT_INTERNAL://broker1:29091
       BOOTSTRAP_SERVERS: broker1:9091,broker2:9092,broker3:9093
     volumes:
-      - ./volumes/kafka1:/var/lib/kafka/data
+      - b1-data:/var/lib/kafka/data
 
   broker2:
     image: confluentinc/cp-kafka:${CONFLUENT_PLATFORM_VERSION:-latest}
@@ -42,7 +43,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker2:29092
       BOOTSTRAP_SERVERS: broker1:9091,broker2:9092,broker3:9093
     volumes:
-      - ./volumes/kafka2:/var/lib/kafka/data
+      - b2-data:/var/lib/kafka/data
 
   broker3:
     image: confluentinc/cp-kafka:${CONFLUENT_PLATFORM_VERSION:-latest}
@@ -60,4 +61,10 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9093,PLAINTEXT_INTERNAL://broker3:29093
       BOOTSTRAP_SERVERS: broker1:9091,broker2:9092,broker3:9093
     volumes:
-      - ./volumes/kafka3:/var/lib/kafka/data
+      - b3-data:/var/lib/kafka/data
+
+volumes:
+  zk-data:
+  b1-data:
+  b2-data:
+  b3-data:
