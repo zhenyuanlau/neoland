@@ -1,6 +1,6 @@
 ---
 services:
-  redis:
+  default:
     container_name: redis-stack
     hostname: redis-stack
     image: redis/redis-stack:latest

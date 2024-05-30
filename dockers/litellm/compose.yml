@@ -1,6 +1,6 @@
 ---
 services:
-  litellm:
+  proxy:
     image: ghcr.io/berriai/litellm:main-latest
     ports:
       - "4000:4000"

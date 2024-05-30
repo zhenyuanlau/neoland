@@ -8,4 +8,4 @@ link:https://www.writethedocs.org/[Write the Docs] is a global community of peop
 
 == Ref 
 
-- link:https://help.dozuki.com/Tech_Writing[Tech Writing Handbook]
+* link:https://help.dozuki.com/Tech_Writing[Tech Writing Handbook]

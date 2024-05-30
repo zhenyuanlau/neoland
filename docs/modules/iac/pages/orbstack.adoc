@@ -1,21 +1,12 @@
 = Orbstack
 
-link:https://orbstack.dev/[Orbstack] is the fast, light, and easy way to run Docker containers and Linux. Develop at lightspeed with our Docker Desktop alternative.
+== Domain names
 
-== Compare
+Visit link:http://orb.local[].
 
+
+== Ref
+* link:https://orbstack.dev/[Orbstack]
 * link:https://docs.orbstack.dev/compare/docker-desktop[OrbStack vs. Docker Desktop]
 * link:https://docs.orbstack.dev/compare/utm[OrbStack vs. UTM]
-
-== From Multipass to Orbstack
-
-link:https://multipass.run/[Multipass] uses Hyper-V on Windows, QEMU and HyperKit on macOS and LXD on Linux for minimal overhead and the fastest possible start time.
-
-But it only supports Ubuntu VMs.
-
-== Awsome
-
 * link:https://docs.orbstack.dev/docker/domains[Container domain names]
-
-[quote]
-Containers in OrbStack have domain names at container-name.orb.local with zero configuration or port numbers required. This makes it easy to access services, especially for large projects, where port forwards can quickly get messy and difficult to remember.

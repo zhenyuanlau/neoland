@@ -1,0 +1,10 @@
+---
+- name: "Tear down existing {{ item }}"
+  community.docker.docker_compose_v2:
+    project_src: "../dockers/{{ item }}"
+    state: absent
+    remove_orphans: true
+    remove_volumes: true
+- name: "Create and start {{ item }}"
+  community.docker.docker_compose_v2:
+    project_src: "../dockers/{{ item }}"

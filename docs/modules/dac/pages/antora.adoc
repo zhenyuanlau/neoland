@@ -2,4 +2,4 @@
 
 == Ref
 
-- link:https://docs.antora.org/antora/latest/install-and-run-quickstart/[Antora Docs]
+* link:https://docs.antora.org/antora/latest/install-and-run-quickstart/[Antora Docs]

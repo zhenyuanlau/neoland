@@ -1,6 +1,6 @@
 ---
 services:
-  rabbitmq:
+  default:
     container_name: rabbitmq
     hostname: rabbitmq
     image: rabbitmq:3-management

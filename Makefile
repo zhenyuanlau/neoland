@@ -34,7 +34,7 @@ land:
 	@$(PLAY) playbooks/site.yml -t land
 
 $(COMPONENTS):
-	@$(PLAY) playbooks/site.yml -t $@
+	@$(PLAY) playbooks/site.yml -t component,$@
 
 ollama.llama3:
 	-ollama pull llama3

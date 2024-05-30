@@ -21,6 +21,19 @@ image::land-on-orbstack.png[]
 |Open LiteLLM UI page in browser
 
 |make ollama.llm
-|Pull ollama language model
+a|Pull ollama language model
+
+* llama3
+* dolphincoder
+
+|make <component>
+a| Recreate neoland components, include:
+
+* redis
+* postgres
+* rabbitmq
+* kafka 
+* clickhouse
+* litellm
 
 |===
