@@ -13,7 +13,7 @@ COMPONENTS := postgres redis kafka rabbitmq clickhouse litellm
 
 default: setup land
 
-setup: venv pip.install ansible.galaxy brew.bundle npm.install
+setup: venv pip.install ansible.galaxy brew.bundle
 
 venv:
 	$(PY) -m venv $(VENV_PATH)
@@ -23,9 +23,6 @@ pip.freeze:
 
 pip.install:
 	$(PIP) install --upgrade -r requirements.txt
-
-npm.install:
-	@npm install
 
 ansible.galaxy:
 	@$(GALAXY) collection install community.docker --force
@@ -40,19 +37,21 @@ $(COMPONENTS):
 	@$(PLAY) playbooks/site.yml -t $@
 
 ollama.llama3:
-	-ollama run llama3
+	-ollama pull llama3
 
 ollama.dolphincoder:
-	-ollama run dolphincoder
+	-ollama pull dolphincoder
 
-antora: clean
-	@npx antora local-antora-playbook.yml
+ollama.llm: ollama.llama3 ollama.dolphincoder
 
-guide: antora
+docs: clean
+	@npx -p antora -p asciidoctor-kroki -c 'antora local-antora-playbook.yml'
+
+docs.server: docs
 	@npx http-server build/site -c-1
 
 open:
-	@open http://127.0.0.1:4000
+	@open http://127.0.0.1:4000/ui
 
 clean:
 	@rm -fr build/site

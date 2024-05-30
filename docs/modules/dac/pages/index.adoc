@@ -1,3 +1,11 @@
 = DaC
 
-Doc as Code.
+Docs as Code.
+
+== Write The Docs
+
+link:https://www.writethedocs.org/[Write the Docs] is a global community of people who care about documentation.
+
+== Ref 
+
+- link:https://help.dozuki.com/Tech_Writing[Tech Writing Handbook]

@@ -14,10 +14,13 @@ image::land-on-orbstack.png[]
 |make
 |Setup neoland on Orbstack
 
-|make guide
-|Antora generate and open docs
+|make docs 
+|Antora site generation and show index.html file
 
 |make open
-|Open LiteLLM page
+|Open LiteLLM UI page in browser
+
+|make ollama.llm
+|Pull ollama language model
 
 |===

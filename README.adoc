@@ -35,7 +35,7 @@ cd neoland
 
 [source, shell]
 
-make guide
+make docs
 
 === Setup
 
@@ -53,5 +53,7 @@ make ollama.dolphincoder
 
 [source, shell]
 ------
-make litellm.open
+make open
+
+# user/password: litellm/litellm
 ------
