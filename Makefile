@@ -25,7 +25,8 @@ pip.install:
 	$(PIP) install --upgrade -r requirements.txt
 
 ansible.galaxy:
-	@$(GALAXY) collection install community.docker --force
+	@$(GALAXY) collection install community.docker --upgrade
+	@$(GALAXY) collection install kubernetes.core --upgrade
 
 brew.bundle:
 	@brew bundle
