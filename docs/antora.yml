@@ -3,8 +3,8 @@ title: Neoland
 version: ~ 
 nav:
   - modules/ROOT/nav.adoc
-  - modules/dac/nav.adoc
   - modules/ai/nav.adoc
   - modules/dt/nav.adoc
   - modules/web/nav.adoc
+  - modules/dac/nav.adoc
   - modules/iac/nav.adoc

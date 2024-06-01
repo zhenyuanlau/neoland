@@ -1,6 +1,4 @@
-= DaC
-
-Docs as Code.
+= Docs as Code
 
 == Write The Docs
 

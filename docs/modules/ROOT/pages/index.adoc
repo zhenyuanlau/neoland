@@ -1,9 +1,9 @@
 = Home
 :!toc:
 
-== Infras
+== Tech
 
-image::land-on-orbstack.png[]
+AI First!
 
 == Stack
 
@@ -33,6 +33,10 @@ a|
 * link:https://jupyter.org/install[Jupyter Lab]
 
 |===
+
+== Infrastructure
+
+image::land-on-orbstack.png[]
 
 == Makefile
 

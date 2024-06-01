@@ -1,9 +1,0 @@
-= AI
-
-[excalidraw]
-
-----
-include::partial$llm.excalidraw[]
-----
-
-

@@ -1,0 +1,5 @@
+= GPT
+
+Generative Pre-trained Transformer.
+
+== Next Token Prediction

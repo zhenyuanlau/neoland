@@ -1,3 +1,3 @@
-* xref:index.adoc[]
+* xref:infrastructure-as-code.adoc[]
 ** xref:orbstack.adoc[]
-** xref:ansible.adoc[Ansible]
+** xref:ansible.adoc[]

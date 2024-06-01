@@ -1,0 +1,25 @@
+= AI Tech
+
+[mermaid]
+----
+timeline
+    title History of Social Media Platform
+    1950 : Turing Test
+    1956 : AI
+    1980 : Machine Learning
+         : Data Fitting
+    2007 : Deep Learning
+         : Neural Network
+         : Deep Neural Network
+    2018 : LLM
+    2022 : LMM
+    2023 : ?
+         : AI Agent
+----
+
+== Machine Learning
+
+image::ml-map.svg[]
+
+
+== Deep Learning

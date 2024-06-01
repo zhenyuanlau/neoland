@@ -1,4 +1,4 @@
-* xref:index.adoc[Web]
-** xref:redis.adoc[Redis]
-** xref:postgresql.adoc[PostgreSQL]
-** xref:rabbitmq.adoc[RabbitMQ]
+* xref:web-tech.adoc[]
+** xref:redis.adoc[]
+** xref:postgresql.adoc[]
+** xref:rabbitmq.adoc[]
