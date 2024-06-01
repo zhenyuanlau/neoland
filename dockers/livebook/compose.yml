@@ -1,0 +1,12 @@
+---
+services:
+  server:
+    container_name: livebook
+    image: ghcr.io/livebook-dev/livebook
+    environment:
+      LIVEBOOK_TOKEN_ENABLED: false
+    volumes:
+      - ../../livebooks:/data
+    ports:
+      - 8080:8080
+      - 8081:8081

@@ -10,6 +10,7 @@
       - kafka
       - clickhouse
       - litellm
+      - livebook
   tasks:
     - name: Tear down land
       community.docker.docker_compose_v2:
