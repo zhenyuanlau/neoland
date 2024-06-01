@@ -55,7 +55,7 @@ docs.server: docs
 	@npx http-server build/site -c-1
 
 open:
-	@open http://127.0.0.1:4000/ui
+	@open http://127.0.0.1:4444/ui
 
 clean:
 	@rm -fr build/site
