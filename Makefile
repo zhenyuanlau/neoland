@@ -45,6 +45,9 @@ ollama.dolphincoder:
 
 ollama.llm: ollama.llama3 ollama.dolphincoder
 
+jupyter.lab:
+	$(PY) -m jupyter lab --NotebookApp.notebook_dir=./notebooks
+
 docs: clean
 	@npx -p antora -p asciidoctor-kroki -c 'antora local-antora-playbook.yml'
 

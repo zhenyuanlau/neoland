@@ -1,9 +1,14 @@
+.DS_Store
+
 .venv
 
+# Ansible Roles
 roles/**/*
-
 !roles/.gitkeep
 
+# Antora site
 build
 
-.DS_Store
+# Jupyter Notebook
+.ipynb_checkpoints
+Untitled.ipynb
