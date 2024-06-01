@@ -18,3 +18,9 @@ pip install 'litellm[proxy]'
 litellm --model ollama_chat/llama3
 ----
 
+== LiteLLM UI
+
+[source, shell]
+------
+make litellm.ui
+------

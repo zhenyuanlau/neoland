@@ -1,5 +1,4 @@
 brew "node"
 brew "kcat"
-
-cask "orbstack"
-cask "ollama"
+brew "watchexec"
+brew "python@3.10"

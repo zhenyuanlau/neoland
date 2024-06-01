@@ -11,11 +11,18 @@ AI First!
 |===
 |Source| Item
 
-|link:https://brew.sh/[Homebrew]
+|Official
 a|
+
 * link:https://orbstack.dev/[Orbstack]
 * link:https://ollama.ai/[Ollama]
-* link:https://docs.confluent.io/platform/current/tools/kafkacat-usage.html[kcat]
+* link:https://chatboxai.app/[Chatbox]
+
+|link:https://brew.sh/[Homebrew]
+a|
+
+* https://nodejs.org/en/download/package-manager[Node]
+* link:https://www.python.org/downloads/[Python 3.10.X]
 
 |link:https://orbstack.dev/[Orbstack]
 a|
@@ -32,6 +39,7 @@ a|
 * link:https://docs.ansible.com/ansible-core/devel/getting_started/index.html[Ansible]
 * link:https://jupyter.org/install[Jupyter Lab]
 
+
 |===
 
 == Infrastructure
@@ -47,26 +55,30 @@ image::land-on-orbstack.png[]
 |make
 |Setup neoland on Orbstack
 
-|make docs 
-|Antora site generation and show index.html file
-
-|make open
+|make litellm.ui
 |Open LiteLLM UI page in browser
 
 |make ollama.llm
-a|Pull ollama language model
+a|Pull ollama language models, include:
 
 * llama3
 * dolphincoder
+
+|make jupyter.lab
+|Run jupyter lab
+
+|make livebook.open
+|Open livebook
 
 |make <component>
 a| Recreate neoland components, include:
 
 * redis
+* kafka 
 * postgres
 * rabbitmq
-* kafka 
 * clickhouse
 * litellm
+* livebook
 
 |===

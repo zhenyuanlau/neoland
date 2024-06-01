@@ -48,14 +48,11 @@ ollama.llm: ollama.llama3 ollama.dolphincoder
 jupyter.lab:
 	$(PY) -m jupyter lab --NotebookApp.notebook_dir=./notebooks
 
-docs: clean
-	@npx -p antora -p asciidoctor-kroki -c 'antora antora-playbook.yml'
+livebook.open:
+	@open http://127.0.0.1:8080/
 
-docs.server: docs
-	@npx http-server build/site -c-1
-
-open:
+litellm.ui:
 	@open http://127.0.0.1:4444/ui
 
-clean:
-	@rm -fr build/site
+antora:
+	@watchexec -w docs -- npx -p antora -p asciidoctor-kroki -c \'antora antora-playbook.yml\'
