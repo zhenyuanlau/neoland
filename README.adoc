@@ -2,7 +2,11 @@
 
 A new homeland for developing AI-native applications.
 
-== Quick
+== Docs
+
+link:https://zhenyuanlau.github.io/neoland/neoland/index.html[Neoland GitHub Pages].
+
+== Stack
 
 [source, shell]
 
@@ -11,12 +15,6 @@ git clone https://github.com/zhenyuanlau/neoland.git
 
 cd neoland
 ------
-
-=== Docs
-
-[source, shell]
-
-make docs
 
 === Setup
 

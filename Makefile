@@ -49,7 +49,7 @@ jupyter.lab:
 	$(PY) -m jupyter lab --NotebookApp.notebook_dir=./notebooks
 
 docs: clean
-	@npx -p antora -p asciidoctor-kroki -c 'antora local-antora-playbook.yml'
+	@npx -p antora -p asciidoctor-kroki -c 'antora antora-playbook.yml'
 
 docs.server: docs
 	@npx http-server build/site -c-1
