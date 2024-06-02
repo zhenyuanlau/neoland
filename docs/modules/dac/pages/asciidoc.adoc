@@ -2,10 +2,9 @@
 
 == Why not Markdown
 
-
-
 == Ref
 
 * link:https://www.writethedocs.org/guide/writing/asciidoc/[Introduction to AsciiDoc]
 * link:https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc Language Documentation]
 * link:https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/[Why You Shouldn’t Use “Markdown” for Documentation]
+* link:https://docs.asciidoctor.org/asciidoctor/latest/stem/[AsciiDoc STEM Processing]

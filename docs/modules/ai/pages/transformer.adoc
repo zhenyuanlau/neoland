@@ -1,1 +1,13 @@
 = Transformer
+:figure-caption!:
+
+== Abstraction
+
+image::transformer-architecture.png[title=Transformer Architechture,200]
+
+=== Keywords
+
+== References
+
+* link:https://github.com/datawhalechina/learn-nlp-with-transformers[Natural Language Processing with transformers]
+* link:https://gist.github.com/lorenzosinisi/bb928554d665bdc53aada98c3710b0d5[Transformer in Elixir - highly experiemental WIP]

@@ -2,3 +2,11 @@
 ** LLM
 *** xref:llm/ollama.adoc[]
 *** xref:llm/litellm.adoc[]
+** GPT
+*** xref:transformer.adoc[]
+*** xref:gpt/gpt-1.adoc[]
+*** xref:gpt/gpt-2.adoc[]
+*** xref:gpt/gpt-3.adoc[]
+** xref:machine-learning.adoc[] 
+*** xref:ml/simple-linear-regression.adoc[]
+** xref:deep-learning.adoc[]

@@ -6,9 +6,14 @@
 roles/**/*
 !roles/.gitkeep
 
+datasets/*
+!datasets/.gitkeep
+
 # Antora site
-build
+/build
 
 # Jupyter Notebook
 .ipynb_checkpoints
 Untitled.ipynb
+
+/node_modules

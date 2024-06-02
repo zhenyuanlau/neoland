@@ -1,0 +1,7 @@
+= Machine Learning
+
+== References
+
+* link:https://www.kaggle.com/[kaggle]
+* link:https://datasetsearch.research.google.com/[Google Dataset Search]
+* link:https://agileandcode.com/machine-learning-in-elixir-intro[Machine Learning (in Elixir) - Intro]

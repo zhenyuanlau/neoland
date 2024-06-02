@@ -1,1 +1,9 @@
 = GPT-1
+
+== Training
+
+== References
+
+* link:https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf[Improving Language Understanding by Generative Pre-Training]
+* link:https://towardsdatascience.com/large-language-models-gpt-1-generative-pre-trained-transformer-7b895f296d3b[Large Language Models, GPT-1 — Generative Pre-Trained Transformer]
+* link:https://github.com/wtedw/gpt-from-scratch/blob/main/gpt-dev.livemd[Let's build GPT from scratch! w/ Nx and Axon]

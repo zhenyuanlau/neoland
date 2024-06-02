@@ -13,7 +13,7 @@ COMPONENTS := postgres redis kafka rabbitmq clickhouse litellm livebook
 
 default: setup land
 
-setup: venv pip.install ansible.galaxy brew.bundle
+setup: venv pip.install npm.install ansible.galaxy brew.bundle
 
 venv:
 	$(PY) -m venv $(VENV_PATH)
@@ -23,6 +23,9 @@ pip.freeze:
 
 pip.install:
 	$(PIP) install --upgrade -r requirements.txt
+
+npm.install:
+	@npm install
 
 ansible.galaxy:
 	@$(GALAXY) collection install community.docker --upgrade
@@ -55,4 +58,4 @@ litellm.ui:
 	@open http://127.0.0.1:4444/ui
 
 antora:
-	@watchexec -w docs -- npx -p antora -p asciidoctor-kroki -c \'antora antora-playbook.yml\'
+	@watchexec -w docs -- npx antora antora-playbook.yml

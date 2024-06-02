@@ -1,1 +1,5 @@
 = GPT-2
+
+== References
+
+* link:https://dockyard.com/blog/2023/10/17/elixir-meets-gpt-2-implementing-gpt-2-with-nx[Elixir Meets GPT-2: Implementing GPT-2 with Nx]

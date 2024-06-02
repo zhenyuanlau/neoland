@@ -1,9 +1,18 @@
 = Home
 :!toc:
 
-== Tech
+== Opinioned
 
-AI First!
+=== Tech
+
+* AI First!
+* Elixir First!
+
+=== Docs
+
+* Code First!
+* Reference First
+* Keyword First!
 
 == Stack
 
@@ -38,6 +47,7 @@ a|
 a|
 * link:https://docs.ansible.com/ansible-core/devel/getting_started/index.html[Ansible]
 * link:https://jupyter.org/install[Jupyter Lab]
+* link:https://www.kaggle.com/[kaggle]
 
 
 |===

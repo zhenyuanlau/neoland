@@ -1,6 +1,9 @@
 name: neoland
 title: Neoland
 version: ~ 
+asciidoc: 
+  attributes: 
+    page-stem: latexmath
 nav:
   - modules/ROOT/nav.adoc
   - modules/ai/nav.adoc

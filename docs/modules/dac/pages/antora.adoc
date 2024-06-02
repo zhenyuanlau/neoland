@@ -1,5 +1,126 @@
 = Antora
 
-== Ref
+== Configuration
+
+=== Playbook
+
+[source,yaml]
+
+----
+site:
+  title: Neoland
+  start_page: neoland:ROOT:index.adoc
+content:
+  sources:
+    - url: .
+      start_path: docs
+      branches: HEAD
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: ./docs/supplemental-ui
+
+asciidoc:
+  extensions:
+    - asciidoctor-kroki
+    - asciidoctor-mathjax
+----
+
+=== Component version descriptor file 
+
+[source, yaml]
+
+----
+name: neoland
+title: Neoland
+version: ~ 
+asciidoc: 
+  attributes: 
+    page-stem: latexmath
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/ai/nav.adoc
+  - modules/dt/nav.adoc
+  - modules/web/nav.adoc
+  - modules/dac/nav.adoc
+  - modules/iac/nav.adoc
+----
+
+
+== Github Pages
+
+=== Supplemental UI
+
+[source,shell]
+
+----
+.
+├── .nojekyll
+├── partials
+│   └── header-content.hbs
+└── ui.yml
+----
+
+[source, yaml]
+----
+static_files:
+  - .nojekyll
+----
+
+=== Settings
+
+image::github-pages-settings.png[]
+
+=== Actions
+
+[source, yaml]
+----
+name: Publish to GitHub Pages
+on:
+  push:
+    branches: [main]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Configure Pages
+      uses: actions/configure-pages@v4
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - name: Install Antora
+      run: npm i antora asciidoctor asciidoctor-kroki asciidoctor-mathjax
+    - name: Generate Site
+      run: npx antora antora-playbook.yml
+    - name: Upload Artifacts
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: build/site
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+----
+
+
+
+== References
 
 * link:https://docs.antora.org/antora/latest/install-and-run-quickstart/[Antora Docs]
+* link:https://docs.antora.org/antora/latest/publish-to-github-pages/[Antora Docs - Publish to GitHub Pages]
