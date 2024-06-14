@@ -1,0 +1,20 @@
+= Artificial Neural Network
+
+image::forward-and-backward-propagation.png[]
+
+== Abstraction
+
+=== Keywords
+
+* Model
+** Creation
+** Execution
+** Training
+*** Loss Function
+*** Optimizer
+** Evaluation
+** Serialization
+
+== References
+
+* link:https://alexlenail.me/NN-SVG/index.html[NN SVG]

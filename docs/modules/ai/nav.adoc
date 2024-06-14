@@ -8,5 +8,4 @@
 *** xref:gpt/gpt-2.adoc[]
 *** xref:gpt/gpt-3.adoc[]
 ** xref:machine-learning.adoc[] 
-*** xref:ml/simple-linear-regression.adoc[]
 ** xref:deep-learning.adoc[]

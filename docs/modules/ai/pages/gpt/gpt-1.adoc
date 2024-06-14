@@ -1,6 +1,7 @@
 = GPT-1
 
-== Training
+== Keywords
+
 
 == References
 

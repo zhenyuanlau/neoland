@@ -1,9 +1,0 @@
-= Simple Linear Regression
-:stem: latexmath
-
-== Example
-
-[stem]
-++++ 
-y = w * x + b
-++++

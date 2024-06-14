@@ -1,7 +1,7 @@
-= Home
+= Abstract
 :!toc:
 
-== Opinioned
+== First Principle
 
 === Tech
 

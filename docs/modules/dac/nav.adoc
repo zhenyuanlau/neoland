@@ -2,3 +2,4 @@
 ** xref:antora.adoc[]
 ** xref:asciidoc.adoc[]
 ** xref:system-design.adoc[]
+*** xref:system-design/potion.adoc[]
