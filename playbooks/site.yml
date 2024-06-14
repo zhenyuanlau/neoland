@@ -9,6 +9,7 @@
       - rabbitmq
       - kafka
       - clickhouse
+      - nacos
       - litellm
       - livebook
   tasks:
