@@ -1,0 +1,70 @@
+= Ecto
+
+== Keywords
+
+* LINQ(Language Integrated Query)
+
+== Example
+
+[source,elixir]
+----
+query = from p in Product,
+      where: p.product_id > 25,
+   order_by: p.name,
+     select: p
+
+Repo.all(query)
+----
+
+== Features
+
+=== Composability
+
+[source, elixir]
+----
+query = from p in Product, where: p.product_id > 25
+query = from q in query, order_by: q.name
+----
+
+[source, elixir]
+----
+product = Repo.get(Product, 1)
+
+query = from c in product.categories, limit: 10
+----
+
+=== Data Security
+
+[source, elixir]
+----
+def by_name(name) do
+  from p in Product, where: p.name == ^name
+end
+
+def names do
+  from p in Product, select: strip(p.name)
+end
+----
+
+=== Type Safety
+
+[source, elixir]
+----
+def by_name(name) do
+  from p in Product, where: p.name == ^name
+end
+----
+
+== Components
+
+* Queries
+* Entities
+* Models
+* Repos
+
+== References
+
+=== YouTube
+
+* link:https://youtu.be/SJRfujy9vLA?si=lpxhWCHkERCD3UER[José Valim - Ecto: A language integrated query for Elixir]
+* link:https://youtu.be/QE7bpqpDoKo?si=W0PmLgrvUMEaKMx4[ElixirConf 2016 - Leveling Up With Ecto by Darin Wilson]

@@ -2,11 +2,7 @@
 
 link:https://www.litellm.ai/[LiteLLM] handles loadbalancing, fallbacks and spend tracking across 100+ LLMs. All in the OpenAI format.
 
-[excalidraw]
-
-----
-include::partial$llm.excalidraw[]
-----
+image::llm.png[]
 
 == OpenAI Proxy
 

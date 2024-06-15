@@ -1,0 +1,24 @@
+# Ecto
+
+```elixir
+Mix.install([
+  {:ecto, "~> 3.11"},
+  {:postgrex, "~> 0.18.0"}
+])
+```
+
+## Postgrex
+
+```elixir
+{:ok, pid} =
+  Postgrex.start_link(
+    hostname: "localhost",
+    username: "postgres",
+    password: "postgres",
+    database: "postgres"
+  )
+```
+
+```elixir
+Postgrex.query!(pid, "select * from qrtz_locks", [])
+```

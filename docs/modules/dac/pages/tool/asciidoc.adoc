@@ -1,7 +1,5 @@
 = Asciidoc
 
-== Why not Markdown
-
 == Ref
 
 * link:https://www.writethedocs.org/guide/writing/asciidoc/[Introduction to AsciiDoc]

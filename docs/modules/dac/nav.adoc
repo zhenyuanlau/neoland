@@ -1,5 +1,7 @@
 * xref:docs-as-code.adoc[]
-** xref:antora.adoc[]
-** xref:asciidoc.adoc[]
+** Tool
+*** xref:tool/asciidoc.adoc[]
+*** xref:tool/kroki.adoc[]
+*** xref:tool/antora.adoc[]
+*** xref:tool/livebook.adoc[]
 ** xref:system-design.adoc[]
-*** xref:system-design/potion.adoc[]

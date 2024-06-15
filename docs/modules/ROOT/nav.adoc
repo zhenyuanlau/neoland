@@ -1,2 +1,4 @@
 * Preface
 ** xref:index.adoc[]
+** Startup
+*** xref:startup/potion.adoc[]

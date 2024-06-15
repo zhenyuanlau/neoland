@@ -1,3 +1,11 @@
-* xref:infrastructure-as-code.adoc[]
-** xref:orbstack.adoc[]
+* xref:infras-as-code.adoc[]
 ** xref:ansible.adoc[]
+** Local
+*** xref:local/orbstack.adoc[]
+*** xref:local/localstack.adoc[]
+** Infra
+*** xref:infra/redis.adoc[]
+*** xref:infra/kafka.adoc[]
+*** xref:infra/postgresql.adoc[]
+*** xref:infra/rabbitmq.adoc[]
+*** xref:infra/clickhouse.adoc[]

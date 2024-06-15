@@ -1,3 +1,2 @@
 * xref:data-tech.adoc[]
-** xref:kafka.adoc[]
-** xref:clickhouse.adoc[]
+** xref:etl.adoc[]

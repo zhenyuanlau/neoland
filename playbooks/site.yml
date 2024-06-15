@@ -10,6 +10,7 @@
       - kafka
       - clickhouse
       - nacos
+      - localstack
       - litellm
       - livebook
   tasks:

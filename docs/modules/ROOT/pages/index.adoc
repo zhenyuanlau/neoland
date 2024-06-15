@@ -5,16 +5,16 @@
 
 === Tech
 
-* AI First!
-* Elixir First!
+* Elixir First
+* AI First
 
 === Docs
 
-* Code First!
+* Code First
 * Reference First
-* Keyword First!
+* Keyword First
 
-== Stack
+== Local Stack
 
 [cols="1,1"]
 |===
@@ -42,6 +42,7 @@ a|
 * link:https://clickhouse.com/docs/en/getting-started/quick-start[Clickhouse]
 * link:https://docs.litellm.ai/docs/[LiteLLM]
 * link:https://livebook.dev/[Livebook]
+* link:https://www.localstack.cloud/[LocalStack]
 
 |link:https://www.python.org/downloads/[Python 3.10.X]
 a|
@@ -52,11 +53,8 @@ a|
 
 |===
 
-== Infrastructure
 
-image::land-on-orbstack.png[]
-
-== Makefile
+== Make Commands
 
 [cols="1,1"]
 |===
@@ -83,11 +81,13 @@ a|Pull ollama language models, include:
 |make <component>
 a| Recreate neoland components, include:
 
-* redis
 * kafka 
+* redis
+* nacos
 * postgres
 * rabbitmq
 * clickhouse
+* localstack
 * litellm
 * livebook
 

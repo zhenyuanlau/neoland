@@ -1,0 +1,12 @@
+= Kroki
+
+== Tips
+
+=== Max URI length
+
+Export Excalidraw to image.
+
+== References
+
+* link:https://kroki.io/[Kroki]
+* link:https://docs.kroki.io/kroki/setup/configuration/[Kroki Docs::Configuration]

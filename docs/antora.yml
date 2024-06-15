@@ -9,5 +9,6 @@ nav:
   - modules/ai/nav.adoc
   - modules/dt/nav.adoc
   - modules/web/nav.adoc
+  - modules/iot/nav.adoc
   - modules/dac/nav.adoc
   - modules/iac/nav.adoc
