@@ -65,6 +65,5 @@ end
 == References
 
 === YouTube
-
 * link:https://youtu.be/SJRfujy9vLA?si=lpxhWCHkERCD3UER[José Valim - Ecto: A language integrated query for Elixir]
 * link:https://youtu.be/QE7bpqpDoKo?si=W0PmLgrvUMEaKMx4[ElixirConf 2016 - Leveling Up With Ecto by Darin Wilson]

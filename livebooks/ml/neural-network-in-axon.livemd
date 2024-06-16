@@ -1,0 +1,130 @@
+# Neural Network In Axon
+
+```elixir
+Mix.install([
+  {:axon, "~> 0.6.1"},
+  {:nx, "~> 0.7.2"},
+  {:exla, "~> 0.7.2"},
+  {:kino, "~> 0.12.3"},
+  {:scidata, "~> 0.1.11"}
+])
+```
+
+## MNIST Dataset
+
+[THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/)
+
+```elixir
+base_url = "https://storage.googleapis.com/cvdf-datasets/mnist/"
+train_image_file = "train-images-idx3-ubyte.gz"
+train_label_file = "train-labels-idx1-ubyte.gz"
+test_image_file = "t10k-images-idx3-ubyte.gz"
+test_label_file = "t10k-labels-idx1-ubyte.gz"
+```
+
+```elixir
+train_image_url = base_url <> train_image_file
+train_label_url = base_url <> train_label_file
+test_image_url = base_url <> test_image_file
+test_label_url = base_url <> test_label_file
+```
+
+### Train Image Data
+
+```elixir
+{:ok, {_status, _headers, train_image_file}} = :httpc.request(train_image_url)
+```
+
+TRAINING SET IMAGE FILE (train-images-idx3-ubyte)
+
+| offset | type           | value            | description       |
+| ------ | -------------- | ---------------- | ----------------- |
+| 0000   | 32 bit integer | 0x00000803(2051) | magic number      |
+| 0004   | 32 bit integer | 60000            | number of images  |
+| 0008   | 32 bit integer | 28               | number of rows    |
+| 0012   | 32 bit integer | 28               | number of columns |
+| 0016   | unsigned byte  | ??               | pixel             |
+
+```elixir
+<<_magic_number::32, n_images::32, n_rows::32, n_columns::32, train_image_file::binary>> = :zlib.gunzip(train_image_file)
+```
+
+```elixir
+train_image_tensor =
+  train_image_file
+  |> Nx.from_binary({:u, 8})
+  |> Nx.reshape({n_images, n_rows, n_columns})
+  |> Nx.divide(255)
+
+train_image_tensor |> Nx.to_heatmap()
+```
+
+### Train label Data
+
+```elixir
+{:ok, {_status, _headers, train_label_file }} = :httpc.request(train_label_url)
+```
+
+TRAINING SET LABEL FILE (train-labels-idx1-ubyte)
+
+| offset | type           | value            | description     |
+| ------ | -------------- | ---------------- | --------------- |
+| 0000   | 32 bit integer | 0x00000801(2049) | magic number    |
+| 0004   | 32 bit integer | 60000            | number of items |
+| 0016   | unsigned byte  | ??               | label           |
+
+The labels values are 0 to 9.
+
+```elixir
+<<_::32, n_labels::32, train_label_file::binary>> = :zlib.gunzip(train_label_file)
+```
+
+```elixir
+train_label_tensor =
+  train_label_file
+  |> Nx.from_binary({:u, 8})
+   |> Nx.new_axis(-1)
+  |> Nx.equal(Nx.tensor(Enum.to_list(0..9)))
+```
+
+## Neural Network
+
+```elixir
+model =
+  Axon.input("input", shape: {32, 28 , 28})
+  |> Axon.flatten()
+  |> Axon.dense(128, activation: :sigmoid)
+  |> Axon.dense(10, activation: :softmax)
+```
+
+```elixir
+# Axon.Display.as_graph(model, Nx.template({nil, 1, 28, 28}, {:u, 8}))
+```
+
+```elixir
+train_image_batch = Nx.to_batched(train_image_tensor, 32)
+
+train_label_batch = Nx.to_batched(train_label_tensor, 32)
+
+Stream.zip(train_image_batch, train_label_batch) |> Enum.to_list()
+```
+
+```elixir
+params =
+  model
+  |> Axon.Loop.trainer(:categorical_cross_entropy, :adam)
+  |> Axon.Loop.run(Stream.zip(train_image_batch, train_label_batch), %{},
+    epochs: 10,
+    compiler: EXLA
+  )
+```
+
+```elixir
+first_batch = Enum.at(train_image_batch, 0)
+
+output = Axon.predict(model, params, first_batch)
+```
+
+```elixir
+Nx.argmax(output, axis: 1)
+```

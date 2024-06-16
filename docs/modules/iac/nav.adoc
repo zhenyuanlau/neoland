@@ -1,5 +1,4 @@
 * xref:infras-as-code.adoc[]
-** xref:ansible.adoc[]
 ** Local
 *** xref:local/orbstack.adoc[]
 *** xref:local/localstack.adoc[]

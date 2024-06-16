@@ -1,0 +1,31 @@
+= Authentication
+
+== ERD
+
+[mermaid]
+....
+erDiagram
+    users ||--o| users_tokens: has_many
+    users {
+        citext email
+        string(255) hashed_password 
+        naive_datetime confirmed_at
+    }
+    users_tokens {
+        integer user_id
+        binary  token
+        string context
+        string sent_to
+    }
+....
+
+== Page Flow
+
+[plantuml,alice-bob,svg,role=sequence]
+....
+include::partial$authentication-page-flow.puml[]
+....
+
+== References
+
+* link:https://hexdocs.pm/phoenix/mix_phx_gen_auth.html[mix phx.gen.auth]

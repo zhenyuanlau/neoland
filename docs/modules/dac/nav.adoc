@@ -5,3 +5,4 @@
 *** xref:tool/antora.adoc[]
 *** xref:tool/livebook.adoc[]
 ** xref:system-design.adoc[]
+*** xref:system-design/authentication.adoc[]

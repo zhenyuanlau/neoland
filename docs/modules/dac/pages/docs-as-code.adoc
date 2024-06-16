@@ -4,6 +4,6 @@
 
 link:https://www.writethedocs.org/[Write the Docs] is a global community of people who care about documentation.
 
-== Ref 
+== References 
 
 * link:https://help.dozuki.com/Tech_Writing[Tech Writing Handbook]

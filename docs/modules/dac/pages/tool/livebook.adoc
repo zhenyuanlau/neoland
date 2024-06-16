@@ -2,4 +2,5 @@
 
 == References
 
+* link:https://youtu.be/RKvqc-UEe34?si=b2PzCQrpj2MnXkxU[Announcing Livebook - José Valim]
 * link:https://youtu.be/KIrLxaM_ipk?si=zKp8IsALixG1GxhG[José Valim - Elixir, Erlang, Phoenix, Livebook]

@@ -1,22 +1,5 @@
 = Deep Learning
 
-== History
-
-[mermaid]
-....
-timeline
-    1943: McCulloch-Pitts neuron
-    1958: the Rosenblatt’s Perceptron
-    1969: Perceptron
-    1974: Backpropagation
-    1985: Boltzmann Machines
-    1986: MLP
-          RNN
-    2012: Dropout
-    2014: GANs
-
-....
-
 == References
 
 * link:http://neuralnetworksanddeeplearning.com/index.html[Neural Networks and Deep Learning]
