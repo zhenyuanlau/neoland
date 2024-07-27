@@ -1,0 +1,32 @@
+# Potion
+
+## Ecto
+
+```elixir
+alias Potion.Repo
+alias Potion.Accounts.User
+alias Potion.Accounts.UserToken
+```
+
+### Query
+
+```elixir
+import Ecto.Query
+
+id = 1
+
+query = from u in "users",
+  join: ut in "users_tokens", on: u.id == ut.user_id,
+  where: u.id == ^id,
+  select: [u.email]
+
+Repo.one(query)
+```
+
+### Schema
+
+```elixir
+query = from u in User, where: u.id == 1
+
+Repo.one!(query)
+```

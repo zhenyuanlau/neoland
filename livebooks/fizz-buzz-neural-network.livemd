@@ -282,21 +282,6 @@ template = Nx.template({1, 2}, :s32)
 Axon.Display.as_graph(model, template)
 ```
 
-<!-- livebook:{"output":true} -->
-
-```mermaid
-graph TD;
-3[/"input (:input) {1, 2}"/];
-4["dense_0 (:dense) {1, 10}"];
-5["tanh_0 (:tanh) {1, 10}"];
-6["dense_1 (:dense) {1, 4}"];
-7["softmax_0 (:softmax) {1, 4}"];
-6 --> 7;
-5 --> 6;
-4 --> 5;
-3 --> 4;
-```
-
 ## Training
 
 ```elixir
