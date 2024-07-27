@@ -7,7 +7,7 @@ ANSIBLE := $(BIN_PATH)/ansible
 PLAY := $(BIN_PATH)/ansible-playbook
 GALAXY := $(BIN_PATH)/ansible-galaxy
 
-COMPONENTS := postgres redis kafka rabbitmq clickhouse nacos localstack litellm livebook
+COMPONENTS := postgres metabase redis kafka rabbitmq clickhouse nacos localstack litellm livebook
 
 .PHONY: default setup land clean
 

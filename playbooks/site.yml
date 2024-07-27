@@ -6,6 +6,7 @@
     components:
       - redis
       - postgres
+      - metabase
       - rabbitmq
       - kafka
       - clickhouse
